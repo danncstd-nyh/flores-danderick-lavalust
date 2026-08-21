@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nature | Student Profile</title>
+    <title>Spider-Man | Student Profile</title>
 
     <style>
         * {
@@ -13,7 +13,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #2e7d32, #a5d6a7);
+            background: linear-gradient(135deg, #b30000, #001f5c);
             min-height: 100vh;
             color: white;
             display: flex;
@@ -39,26 +39,26 @@
 
         .container {
             width: 500px;
-            background: rgba(20, 60, 25, 0.90);
+            background: rgba(0, 0, 0, 0.88);
             padding: 30px;
             border-radius: 20px;
-            border: 4px solid #81c784;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+            border: 4px solid #e60000;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
             position: relative;
             z-index: 1;
         }
 
-        .nature {
+        .spider {
             text-align: center;
             font-size: 55px;
         }
 
         h1 {
             text-align: center;
-            color: #c8e6c9;
+            color: #e60000;
             font-size: 32px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 0 #1b5e20;
+            text-shadow: 2px 2px 0 white;
             margin-top: 5px;
         }
 
@@ -71,7 +71,7 @@
             display: inline-block;
             text-decoration: none;
             color: white;
-            background: #388e3c;
+            background: #e60000;
             padding: 10px 18px;
             margin: 5px;
             border-radius: 8px;
@@ -80,7 +80,7 @@
         }
 
         .nav a:hover {
-            background: #1b5e20;
+            background: #0047ab;
             transform: scale(1.05);
         }
 
@@ -89,7 +89,7 @@
             color: #111;
             padding: 20px;
             border-radius: 12px;
-            border-left: 8px solid #388e3c;
+            border-left: 8px solid #e60000;
         }
 
         .info p {
@@ -100,7 +100,7 @@
 
         .label {
             font-weight: bold;
-            color: #2e7d32;
+            color: #0047ab;
         }
 
         .hobbies {
@@ -110,7 +110,7 @@
 
         .hobbies span {
             display: inline-block;
-            background: #388e3c;
+            background: #e60000;
             color: white;
             padding: 7px 12px;
             margin: 4px;
@@ -121,7 +121,7 @@
         .footer {
             text-align: center;
             margin-top: 20px;
-            color: #c8e6c9;
+            color: #e60000;
             font-weight: bold;
         }
     </style>
@@ -131,7 +131,7 @@
 
     <div class="container">
 
-        <div class="nature">🌿🌳</div>
+        <div class="spider">🕷️</div>
 
         <h1>Student Profile</h1>
 
@@ -146,54 +146,47 @@
                 <span class="label">Student ID:</span>
                 <?php echo $student_id; ?>
             </p>
-
             <p>
                 <span class="label">Name:</span>
-                Oracion, John Cedrick M.
+                <?php echo $name; ?>
             </p>
-
             <p>
                 <span class="label">Course:</span>
-                BS Information Technology
+                <?php echo $course; ?>
             </p>
-
             <p>
                 <span class="label">Year:</span>
-                3rd Year
+                <?php echo $year; ?>
             </p>
-
             <p>
                 <span class="label">Section:</span>
-                3F3
+                <?php echo $section; ?>
             </p>
-
             <p>
                 <span class="label">Email:</span>
-                johnoracion@example.com
+                <?php echo $email; ?>
             </p>
-
             <p>
                 <span class="label">Phone:</span>
-                09171234567
+                <?php echo $number; ?>
             </p>
-
             <p>
                 <span class="label">Address:</span>
-                Pinamalayan, Or. Min
+                <?php echo $address; ?>
             </p>
 
             <div class="hobbies">
                 <span class="label">Hobbies:</span>
 
-                <span>Hiking</span>
-                <span>Photography</span>
-                <span>Playing Basketball</span>
+                <?php foreach ($hobbies as $hobby): ?>
+                    <span><?php echo $hobby; ?></span>
+                <?php endforeach; ?>
             </div>
 
         </div>
 
         <div class="footer">
-            🌱 "Protect nature, preserve the future." 🌱
+            🕸️ With great power comes great responsibility 🕸️
         </div>
 
     </div>
