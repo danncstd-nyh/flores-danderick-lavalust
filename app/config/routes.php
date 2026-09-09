@@ -44,6 +44,12 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 /** @var object $router **/
 
+// Load middleware registrations before routes are dispatched.
+(function () {
+	require_once APP_DIR . 'config/middleware.php';
+	get_config($config);
+})();
+
 //$router->get('/', 'Welcome::index');
 // $router->get('/', 'StudentController::index', ['middleware' => 'StudentMiddleware']);
 // $router->get('/student', 'StudentController::index', ['middleware' => 'StudentMiddleware']);
