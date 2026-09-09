@@ -29,39 +29,24 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
  *
  * @package LavaLust
  * @author Ronald M. Marasigan <ronald.marasigan@yahoo.com>
- * @since Version 1
+ * @since Version 4
  * @link https://github.com/ronmarasigan/LavaLust
  * @license https://opensource.org/licenses/MIT MIT License
  */
-
 /*
-| -------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------
-| Here is where you can register web routes for your application.
+|--------------------------------------------------------------------------
+| Adding of middlewares
+|--------------------------------------------------------------------------
 |
+| Used for adding middlewares
 |
 */
-/** @var object $router **/
+require_once APP_DIR . 'middlewares/StudentMiddleware.php';
+require_once APP_DIR . 'middlewares/AuthMiddleware.php';
+require_once APP_DIR . 'middlewares/AdminMiddleware.php';
 
-//$router->get('/', 'Welcome::index');
-// $router->get('/', 'StudentController::index', ['middleware' => 'StudentMiddleware']);
-// $router->get('/student', 'StudentController::index', ['middleware' => 'StudentMiddleware']);
-// $router->get('/student/profile', 'StudentController::profile', ['middleware' => 'StudentMiddleware']);
-
-$router->get('/', 'Welcome::index');
-$router->get('/users', 'UserController::showUsers');
-
-
-$router->get('/login', 'AuthController::login');
-$router->post('/login', 'AuthController::authenticate');
-$router->get('/register', 'AuthController::register');
-$router->post('/register', 'AuthController::store_register');
-$router->get('/logout', 'AuthController::logout');
-
-$router->get('/products', 'ProductController::index')->middleware('auth');
-$router->get('/products/create', 'ProductController::create')->middleware(['auth', 'admin']);
-$router->post('/products/create', 'ProductController::store')->middleware(['auth', 'admin']);
-$router->get('/products/edit/{id}', 'ProductController::edit')->middleware(['auth', 'admin'])->where_number('id');
-$router->post('/products/edit/{id}', 'ProductController::update')->middleware(['auth', 'admin'])->where_number('id');
-$router->post('/products/delete/{id}', 'ProductController::delete')->middleware(['auth', 'admin'])->where_number('id');
+$config['middlewares'] = [
+    'student' => new StudentMiddleware(),
+    'auth'    => new AuthMiddleware(),
+    'admin'   => new AdminMiddleware(),
+];
